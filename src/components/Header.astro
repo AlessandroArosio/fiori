@@ -1,0 +1,206 @@
+---
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'Chi Siamo', href: '#chi-siamo' },
+  { label: 'Collezioni', href: '#collezioni' },
+  { label: 'Galleria', href: '#galleria' },
+  { label: 'Contatti', href: '#contatti' },
+];
+---
+
+<header class="header" id="home">
+  <nav class="nav container" aria-label="Navigazione principale">
+    <a href="/" class="logo" aria-label="Fiori in Gioielli - Torna alla home">
+      <img
+        src="/images/logo.png"
+        alt="Fiori in Gioielli - Gioielleria artigianale Siracusa"
+        class="logo-img"
+        width="180"
+        height="60"
+        loading="eager"
+      />
+    </a>
+
+    <button
+      class="nav-toggle"
+      aria-label="Apri menu di navigazione"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span class="hamburger"></span>
+    </button>
+
+    <ul class="nav-menu" id="nav-menu" role="menubar">
+      {navItems.map((item) => (
+        <li role="none">
+          <a href={item.href} class="nav-link" role="menuitem">
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(253, 251, 247, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    height: var(--header-height);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 50px;
+    width: auto;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-secondary);
+    position: relative;
+    padding: var(--space-xs) 0;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition-normal);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-secondary);
+    transition: all var(--transition-normal);
+  }
+
+  .hamburger {
+    position: relative;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .hamburger::before {
+    top: -7px;
+  }
+
+  .hamburger::after {
+    top: 7px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+      z-index: 1001;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--color-bg);
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+      transition: right var(--transition-normal);
+      gap: var(--space-xl);
+    }
+
+    .nav-menu.active {
+      right: 0;
+    }
+
+    .nav-toggle[aria-expanded='true'] .hamburger {
+      background-color: transparent;
+    }
+
+    .nav-toggle[aria-expanded='true'] .hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded='true'] .hamburger::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('active');
+    });
+
+    menu.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('active');
+      });
+    });
+  }
+</script>

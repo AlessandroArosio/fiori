@@ -1,0 +1,92 @@
+---
+
+---
+
+<section class="about section" id="chi-siamo" aria-label="Chi Siamo">
+  <div class="container">
+    <h2 class="section-title">Chi Siamo</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle">
+      La nostra passione per la gioielleria artigianale nasce a Siracusa
+    </p>
+
+    <div class="about-grid">
+      <div class="about-image">
+        <img
+          src="/images/about.jpg"
+          alt="Laboratorio artigianale Fiori in Gioielli a Siracusa"
+          width="560"
+          height="400"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-text">
+        <h3>Artigianato e Tradizione Siciliana</h3>
+        <p>
+          <strong>Fiori in Gioielli</strong> nasce dalla passione per la bellezza della natura
+          e l'artigianato siciliano. Nel nostro laboratorio nel cuore di
+          <strong>Siracusa</strong>, ogni pezzo viene creato a mano con cura e dedizione,
+          trasformando la delicatezza dei fiori in gioielli unici e preziosi.
+        </p>
+        <p>
+          Utilizziamo materiali di alta qualità — oro, argento e pietre naturali — per
+          realizzare creazioni che raccontano la bellezza della <strong>Sicilia</strong> e
+          della sua natura rigogliosa. Ogni gioiello è un pezzo unico, pensato per chi
+          cerca eleganza e originalità.
+        </p>
+        <p>
+          Situati nell'incantevole <strong>Ortigia</strong>, il centro storico di Siracusa,
+          vi accogliamo nel nostro negozio dove potrete scoprire le nostre collezioni e
+          vivere un'esperienza artigianale autentica.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background-color: var(--color-bg);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .about-image img {
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .about-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .about-text p {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image {
+      order: -1;
+    }
+  }
+</style>

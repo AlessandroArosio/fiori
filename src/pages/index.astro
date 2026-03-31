@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Collections from '../components/Collections.astro';
+import Gallery from '../components/Gallery.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Fiori in Gioielli | Gioielleria Artigianale a Siracusa, Sicilia';
+const description =
+  'Fiori in Gioielli: gioielleria artigianale a Siracusa, Sicilia. Scopri le nostre creazioni uniche ispirate alla natura e ai fiori siciliani. Anelli, collane, orecchini e bracciali fatti a mano a Ortigia.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Collections />
+    <Gallery />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

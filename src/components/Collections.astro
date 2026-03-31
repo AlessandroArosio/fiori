@@ -1,0 +1,92 @@
+---
+const collections = [
+  {
+    title: 'Collezione Primavera',
+    description:
+      'Gioielli ispirati ai fiori primaverili della campagna siracusana. Delicati e colorati, perfetti per ogni occasione.',
+    icon: '🌸',
+  },
+  {
+    title: 'Collezione Ortigia',
+    description:
+      'Creazioni esclusive dedicate alla bellezza di Ortigia, il cuore storico di Siracusa. Eleganza senza tempo.',
+    icon: '🏛️',
+  },
+  {
+    title: 'Collezione Mare',
+    description:
+      'Ispirati al mare cristallino della costa siracusana. Tonalità azzurre e forme sinuose per un tocco di freschezza.',
+    icon: '🌊',
+  },
+  {
+    title: 'Gioielli Su Misura',
+    description:
+      'Realizziamo gioielli personalizzati su richiesta. Raccontaci la tua idea e la trasformeremo in un pezzo unico.',
+    icon: '✨',
+  },
+];
+---
+
+<section class="collections section" id="collezioni" aria-label="Le Nostre Collezioni">
+  <div class="container">
+    <h2 class="section-title">Le Nostre Collezioni</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle">
+      Ogni gioiello racconta una storia, ogni creazione è un omaggio alla Sicilia
+    </p>
+
+    <div class="collections-grid">
+      {collections.map((collection) => (
+        <article class="collection-card">
+          <span class="collection-icon" aria-hidden="true">{collection.icon}</span>
+          <h3 class="collection-title">{collection.title}</h3>
+          <p class="collection-description">{collection.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .collections {
+    background-color: var(--color-bg-alt);
+  }
+
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .collection-card {
+    background: var(--color-bg);
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .collection-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .collection-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .collection-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-secondary);
+  }
+
+  .collection-description {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+</style>

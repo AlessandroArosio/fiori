@@ -1,0 +1,75 @@
+---
+const galleryImages = [
+  { src: '/images/gallery-1.jpg', alt: 'Anello artigianale con fiore in oro - Fiori in Gioielli Siracusa' },
+  { src: '/images/gallery-2.jpg', alt: 'Collana con pendente floreale in argento - Gioielleria Siracusa' },
+  { src: '/images/gallery-3.jpg', alt: 'Orecchini a fiore in oro e pietre naturali - Artigianato siciliano' },
+  { src: '/images/gallery-4.jpg', alt: 'Bracciale artigianale ispirato alla natura - Fiori in Gioielli' },
+  { src: '/images/gallery-5.jpg', alt: 'Spilla floreale in argento dorato - Gioielli unici Siracusa' },
+  { src: '/images/gallery-6.jpg', alt: 'Parure completa collezione Primavera - Gioielleria artigianale Sicilia' },
+];
+---
+
+<section class="gallery section" id="galleria" aria-label="Galleria">
+  <div class="container">
+    <h2 class="section-title">Galleria</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle">
+      Scopri alcune delle nostre creazioni artigianali
+    </p>
+
+    <div class="gallery-grid">
+      {galleryImages.map((image) => (
+        <figure class="gallery-item">
+          <img
+            src={image.src}
+            alt={image.alt}
+            width="400"
+            height="400"
+            loading="lazy"
+          />
+        </figure>
+      ))}
+    </div>
+
+    <p class="gallery-note">
+      <em>Nuove foto in arrivo — Visita il nostro negozio a Siracusa per scoprire tutte le creazioni!</em>
+    </p>
+  </div>
+</section>
+
+<style>
+  .gallery {
+    background-color: var(--color-bg);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 1;
+    background-color: var(--color-bg-alt);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-note {
+    text-align: center;
+    margin-top: var(--space-xl);
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+</style>
