@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const products = [
+  {
+    id: 1,
+    name: 'Collana Fiore di Lavanda',
+    description: 'Delicata collana con fiore di lavanda essiccato e cristallizzato in resina UV. Catenina anallergica argentata.',
+    price: '€ 28,00',
+    image: '/gallery/collana-lavanda.jpg',
+    tag: 'Bestseller',
+  },
+  {
+    id: 2,
+    name: 'Orecchini Rosa Selvatica',
+    description: 'Piccoli orecchini a bottone con petali di rosa selvatica siciliana. Monachina in acciaio inossidabile.',
+    price: '€ 22,00',
+    image: '/gallery/orecchini-rosa.jpg',
+    tag: 'Nuovo',
+  },
+  {
+    id: 3,
+    name: 'Bracciale Margherita',
+    description: 'Bracciale con margherita intera cristallizzata in resina UV trasparente. Chiusura regolabile.',
+    price: '€ 25,00',
+    image: '/gallery/bracciale-margherita.jpg',
+    tag: null,
+  },
+  {
+    id: 4,
+    name: 'Collana Bouganvillea Siciliana',
+    description: 'Pennello di colore tipicamente siciliano: la bouganvillea rosa cristallizzata in resina su catenina dorata.',
+    price: '€ 32,00',
+    image: '/gallery/collana-bouganvillea.jpg',
+    tag: 'Limitato',
+  },
+  {
+    id: 5,
+    name: 'Orecchini Fiori di Campo',
+    description: 'Mix di piccoli fiori di campo siciliani, essiccati e montati su monachine anallergiche.',
+    price: '€ 20,00',
+    image: '/gallery/orecchini-campo.jpg',
+    tag: null,
+  },
+  {
+    id: 6,
+    name: 'Anello Fiore Personalizzato',
+    description: 'Portami il tuo fiore preferito e creerò per te un anello su misura, unico e irripetibile.',
+    price: 'Su ordinazione',
+    image: '/gallery/anello-personalizzato.jpg',
+    tag: 'Custom',
+  },
+];
+---
+
+<Layout
+  title="Bottega – Gioielli con Fiori Veri Siracusa"
+  description="Scopri la collezione di gioielli artigianali con fiori veri realizzati a Siracusa. Collane, orecchini e bracciali con fiori essiccati e resina UV. Spedizione in tutta Italia."
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <header class="py-16 bg-[#F0EBE6] border-b-2 border-[#E8E1DA]">
+    <div class="container mx-auto px-4 text-center max-w-2xl">
+      <h1 class="font-slab text-4xl md:text-5xl font-semibold mb-4 text-[#5C1A3B]">
+        La Bottega
+      </h1>
+      <p class="text-lg text-gray-700 font-light leading-relaxed">
+        Ogni pezzo è unico come il fiore che lo compone. Realizzati a mano nel mio
+        laboratorio di <strong>Siracusa</strong>, con fiori veri e componenti anallergici.
+      </p>
+    </div>
+  </header>
+
+  <!-- Filters / Info -->
+  <section class="container mx-auto px-4 py-8 max-w-5xl">
+    <div class="flex flex-wrap gap-3 items-center justify-between">
+      <p class="text-sm text-[#8B7355] font-semibold">
+        {products.length} creazioni disponibili
+      </p>
+      <div class="flex gap-2 text-xs text-[#8B7355] font-semibold">
+        <span class="bg-[#F0EBE6] px-3 py-1 rounded-full border border-[#E8E1DA]">✓ Fatto a mano</span>
+        <span class="bg-[#F0EBE6] px-3 py-1 rounded-full border border-[#E8E1DA]">✓ Fiori veri</span>
+        <span class="bg-[#F0EBE6] px-3 py-1 rounded-full border border-[#E8E1DA]">✓ Anallergici</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="container mx-auto px-4 pb-20 max-w-5xl">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {products.map((product) => (
+        <article class="bg-white rounded-lg border-craft shadow-sm overflow-hidden hover:shadow-md transition group">
+          <div class="relative aspect-square bg-[#F0EBE6] overflow-hidden">
+            <img
+              src={product.image}
+              alt={`${product.name} – Gioiello artigianale Fiori da Indossare Siracusa`}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              width="400"
+              height="400"
+              loading="lazy"
+              onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'flex items-center justify-center h-full\'><p class=\'text-[#8B7355] text-sm text-center p-4\'>Foto in arrivo 🌸</p></div>'"
+            />
+            {product.tag && (
+              <span class="absolute top-3 left-3 bg-[#5C1A3B] text-white text-xs font-bold px-2 py-1 rounded">
+                {product.tag}
+              </span>
+            )}
+          </div>
+          <div class="p-5">
+            <h2 class="font-slab font-semibold text-[#4A3B32] text-lg mb-2">{product.name}</h2>
+            <p class="text-sm text-gray-600 mb-4 leading-relaxed">{product.description}</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-[#5C1A3B] text-lg">{product.price}</span>
+              <a
+                href="/contatti"
+                class="text-sm font-bold text-[#8B7355] hover:text-[#5C1A3B] transition underline"
+              >
+                Ordina →
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Custom Order CTA -->
+  <section class="bg-[#F0EBE6] border-y-2 border-[#E8E1DA] py-16 text-center">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <h2 class="font-slab text-3xl mb-4 text-[#4A3B32]">Non trovi quello che cerchi?</h2>
+      <p class="text-gray-600 mb-8 font-light leading-relaxed">
+        Realizzo gioielli su commissione. Portami il tuo fiore del matrimonio, un fiore
+        del giardino di nonna, o semplicemente un fiore che ami. Lo trasformerò in
+        un ricordo da indossare per sempre.
+      </p>
+      <a
+        href="/contatti"
+        class="inline-block bg-[#8B7355] hover:bg-[#6b5840] text-white font-bold py-3 px-8 rounded transition"
+      >
+        Richiedi un Pezzo Custom
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

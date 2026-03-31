@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const processSteps = [
+  {
+    icon: 'flower',
+    title: 'Gel di Silice',
+    description:
+      'Ripongo i fiori freschi nel gel di silice per alcuni giorni. Questa sabbia speciale assorbe l\'umidità, permettendo al fiore di seccarsi mantenendo la sua forma 3D e i suoi colori naturali senza appassire.',
+  },
+  {
+    icon: 'sun',
+    title: 'Resina UV',
+    description:
+      'Una volta essiccati e puliti, lavoro i fiori con una resina UV di alta qualità. Strato dopo strato, sotto la lampada UV, il fiore viene vetrificato, diventando duro, resistente e lucido come il vetro.',
+  },
+  {
+    icon: 'gem',
+    title: 'Assemblaggio',
+    description:
+      'Infine, monto il fiore vetrificato su catenine e componenti anallergici, creando collane, orecchini o bracciali pronti per essere indossati e amati.',
+  },
+];
+---
+
+<Layout
+  title="Gioielli Artigianali con Fiori Veri a Siracusa | Fiori da Indossare"
+  description="Laboratorio artigianale a Siracusa. Creo gioielli unici con fiori veri conservati in resina UV: collane, orecchini e bracciali. Un pezzo di natura da indossare ogni giorno."
+>
+  <Navbar />
+
+  <!-- Hero / Story -->
+  <header class="py-16 md:py-24 container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <img
+        src="/images/logo.png"
+        alt="Fiori da Indossare – Gioielli artigianali con fiori veri a Siracusa"
+        class="mx-auto max-w-xs mb-8 p-2 border-craft bg-white rounded-lg rotate-1"
+        width="300"
+        height="300"
+        loading="eager"
+        onerror="this.src='https://via.placeholder.com/300'"
+      />
+      <h1 class="font-slab text-4xl md:text-5xl font-semibold mb-6 text-[#5C1A3B]">
+        Gioielli Artigianali con Fiori Veri.
+      </h1>
+      <p class="text-lg text-gray-700 leading-relaxed font-light mb-8">
+        Benvenuti nel mio laboratorio a <strong>Siracusa</strong>. Qui, il tempo si ferma per i
+        fiori più belli. Li trasformo in piccoli capolavori da indossare, creando un legame
+        indissolubile tra la natura e chi li sceglie.
+      </p>
+      <a
+        href="/bottega"
+        class="inline-block bg-[#5C1A3B] hover:bg-[#7a2250] text-white font-bold py-3 px-8 rounded transition"
+      >
+        Scopri la Bottega
+      </a>
+    </div>
+  </header>
+
+  <!-- About / Chi Sono -->
+  <section class="container mx-auto px-4 py-16 max-w-4xl">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-slab text-3xl font-semibold mb-4 text-[#5C1A3B]">Chi Sono</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Sono un'artigiana di <strong>Siracusa</strong>, in Sicilia, appassionata di fiori e
+          natura. Ho iniziato questo percorso per preservare la bellezza effimera dei fiori,
+          trasformandola in qualcosa di permanente e indossabile.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Ogni gioiello che creo nasce da un fiore vero — raccolto, essiccato con cura e
+          poi cristallizzato con resina UV — diventando un pezzo unico nel suo genere.
+          Non troverai mai due pezzi identici: è la magia della natura.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Lavoro dal mio piccolo laboratorio nel cuore di Siracusa, portando un tocco
+          di Sicilia in ogni creazione.
+        </p>
+      </div>
+      <div class="border-craft bg-[#F0EBE6] rounded-lg p-8 text-center">
+        <p class="font-slab text-2xl text-[#5C1A3B] mb-4 italic">
+          "Il fiore più bello è quello che porti con te ogni giorno."
+        </p>
+        <p class="text-[#8B7355] font-semibold">— Fiori da Indossare, Siracusa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Timeline -->
+  <section class="bg-[#F0EBE6] py-20 border-y-2 border-[#E8E1DA]" id="metodo">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="font-slab text-3xl text-center mb-4 font-semibold text-[#4A3B32]">
+        Il Mio Metodo di Lavoro
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">
+        Ogni gioiello richiede pazienza, cura e passione. Ecco come trasformo un fiore fresco
+        in un capolavoro da indossare.
+      </p>
+
+      <div
+        class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-[#8B7355] before:to-transparent"
+      >
+        {processSteps.map((step, index) => (
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#F0EBE6] bg-[#8B7355] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <span class="font-bold text-sm">{index + 1}</span>
+            </div>
+            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded border-craft shadow-sm">
+              <h3 class="font-bold text-[#5C1A3B] text-lg mb-2">{step.title}</h3>
+              <p class="text-sm text-gray-600">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery preview -->
+  <section class="container mx-auto px-4 py-16 max-w-5xl" id="galleria">
+    <h2 class="font-slab text-3xl text-center mb-4 font-semibold text-[#4A3B32]">
+      La Galleria
+    </h2>
+    <p class="text-center text-gray-600 mb-10 max-w-xl mx-auto">
+      Ogni pezzo racconta una storia. Scorri la galleria per lasciarti ispirare.
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div class="aspect-square bg-[#F0EBE6] border-craft rounded-lg flex items-center justify-center overflow-hidden">
+          <img
+            src={`/gallery/photo-${i + 1}.jpg`}
+            alt={`Gioiello con fiori veri – Fiori da Indossare Siracusa`}
+            class="w-full h-full object-cover"
+            width="400"
+            height="400"
+            loading="lazy"
+            onerror="this.style.display='none'; this.parentElement.innerHTML += '<p class=\'text-[#8B7355] text-sm text-center p-4\'>Foto in arrivo 🌸</p>'"
+          />
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a
+        href="/bottega"
+        class="inline-block border-2 border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355] hover:text-white font-bold py-3 px-8 rounded transition"
+      >
+        Vedi tutti i gioielli
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="bg-[#5C1A3B] py-16 text-center text-white">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <h2 class="font-slab text-3xl mb-4">Vuoi un gioiello personalizzato?</h2>
+      <p class="mb-8 text-[#F0EBE6] font-light">
+        Porta il tuo fiore preferito o raccontami la tua storia. Creerò per te un pezzo unico,
+        realizzato con amore nel mio laboratorio di Siracusa.
+      </p>
+      <a
+        href="/contatti"
+        class="inline-block bg-white text-[#5C1A3B] hover:bg-[#F0EBE6] font-bold py-3 px-8 rounded transition"
+      >
+        Contattami
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
