@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Raleway', sans-serif;
+  --font-slab: 'Zilla Slab', serif;
+  --color-brand-bg: #FAF8F5;
+  --color-brand-text: #4A3B32;
+  --color-brand-heading: #5C1A3B;
+  --color-brand-accent: #8B7355;
+  --color-brand-section: #F0EBE6;
+  --color-brand-border: #E8E1DA;
+  --color-brand-border-craft: #D4C9C1;
+  --color-brand-footer: #2D241E;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-slab);
+  }
+}
+
+@layer utilities {
+  .font-slab {
+    font-family: var(--font-slab);
+  }
+
+  .border-craft {
+    border: 2px dashed var(--color-brand-border-craft);
+  }
+}

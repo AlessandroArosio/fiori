@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Contattami – Fiori da Indossare Siracusa"
+  description="Contatta il laboratorio Fiori da Indossare a Siracusa. Ordina il tuo gioiello personalizzato con fiori veri o visita lo shop. Rispondo a tutti i messaggi."
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <header class="py-16 bg-[#F0EBE6] border-b-2 border-[#E8E1DA]">
+    <div class="container mx-auto px-4 text-center max-w-2xl">
+      <h1 class="font-slab text-4xl md:text-5xl font-semibold mb-4 text-[#5C1A3B]">
+        Contattami
+      </h1>
+      <p class="text-lg text-gray-700 font-light leading-relaxed">
+        Hai una domanda, vuoi ordinare un gioiello personalizzato o semplicemente vuoi
+        saperne di più? Scrivimi, rispondo a tutti!
+      </p>
+    </div>
+  </header>
+
+  <section class="container mx-auto px-4 py-16 max-w-4xl">
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- Contact Form -->
+      <div>
+        <h2 class="font-slab text-2xl font-semibold mb-6 text-[#4A3B32]">Scrivimi un messaggio</h2>
+        <form
+          name="contatti"
+          method="POST"
+          action="/grazie"
+          class="space-y-5"
+          aria-label="Modulo di contatto"
+        >
+          <div>
+            <label for="nome" class="block text-sm font-semibold text-[#4A3B32] mb-1">
+              Nome <span class="text-[#5C1A3B]">*</span>
+            </label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              autocomplete="given-name"
+              class="w-full border border-[#D4C9C1] rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#8B7355] bg-white text-[#4A3B32]"
+              placeholder="Il tuo nome"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-semibold text-[#4A3B32] mb-1">
+              Email <span class="text-[#5C1A3B]">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full border border-[#D4C9C1] rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#8B7355] bg-white text-[#4A3B32]"
+              placeholder="la.tua@email.it"
+            />
+          </div>
+
+          <div>
+            <label for="oggetto" class="block text-sm font-semibold text-[#4A3B32] mb-1">
+              Oggetto
+            </label>
+            <select
+              id="oggetto"
+              name="oggetto"
+              class="w-full border border-[#D4C9C1] rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#8B7355] bg-white text-[#4A3B32]"
+            >
+              <option value="informazioni">Informazioni generali</option>
+              <option value="ordine">Ordine dalla bottega</option>
+              <option value="custom">Gioiello personalizzato</option>
+              <option value="altro">Altro</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="messaggio" class="block text-sm font-semibold text-[#4A3B32] mb-1">
+              Messaggio <span class="text-[#5C1A3B]">*</span>
+            </label>
+            <textarea
+              id="messaggio"
+              name="messaggio"
+              required
+              rows="5"
+              class="w-full border border-[#D4C9C1] rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#8B7355] bg-white text-[#4A3B32] resize-none"
+              placeholder="Raccontami cosa desideri…"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-[#8B7355] hover:bg-[#6b5840] text-white font-bold py-3 px-8 rounded transition"
+          >
+            Invia Messaggio 🌸
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="space-y-8">
+        <div>
+          <h2 class="font-slab text-2xl font-semibold mb-6 text-[#4A3B32]">Dove siamo</h2>
+          <div class="space-y-4 text-sm text-gray-700">
+            <div class="flex items-start gap-3">
+              <span class="text-[#8B7355] text-lg mt-0.5">📍</span>
+              <div>
+                <p class="font-semibold text-[#4A3B32]">Laboratorio</p>
+                <p>Siracusa, Sicilia</p>
+                <p class="text-xs text-[#8B7355] mt-1">Visite su appuntamento</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="text-[#8B7355] text-lg mt-0.5">✉️</span>
+              <div>
+                <p class="font-semibold text-[#4A3B32]">Email</p>
+                <a
+                  href="mailto:info@fioridaindossare.it"
+                  class="text-[#8B7355] hover:underline"
+                >
+                  info@fioridaindossare.it
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="text-[#8B7355] text-lg mt-0.5">📦</span>
+              <div>
+                <p class="font-semibold text-[#4A3B32]">Spedizioni</p>
+                <p>In tutta Italia • Consegna in 5-7 giorni lavorativi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ordering info -->
+        <div class="bg-[#F0EBE6] border-craft rounded-lg p-6">
+          <h3 class="font-slab text-lg font-semibold text-[#5C1A3B] mb-3">Come funziona un ordine</h3>
+          <ol class="space-y-2 text-sm text-gray-600 list-decimal list-inside">
+            <li>Scrivimi descrivendo il gioiello che desideri</li>
+            <li>Ti invierò un preventivo e una stima dei tempi</li>
+            <li>Confermato l'ordine, comincio la lavorazione</li>
+            <li>Ti spedisco il gioiello con cura, direttamente a casa tua</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,12 @@
+Gallery placeholder – add your real product photos here.
+
+Recommended file names and sizes:
+- photo-1.jpg through photo-6.jpg (shown on homepage gallery grid)
+- collana-lavanda.jpg
+- orecchini-rosa.jpg
+- bracciale-margherita.jpg
+- collana-bouganvillea.jpg
+- orecchini-campo.jpg
+- anello-personalizzato.jpg
+
+Recommended size: 800x800px, JPEG, < 200KB each.

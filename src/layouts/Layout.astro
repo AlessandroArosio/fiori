@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  pageType?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = '/images/og-image.jpg',
+  pageType = 'website',
+} = Astro.props;
+
+const siteName = 'Fiori da Indossare';
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="gioielli fiori, gioielli artigianali Siracusa, fiori conservati, bigiotteria artigianale Sicilia, collane fiori naturali, orecchini fiori secchi, bracciali fiori, laboratorio gioielli Siracusa, regalo personalizzato Siracusa" />
+    <meta name="author" content="Fiori da Indossare" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Italian" />
+    <meta name="geo.region" content="IT-SR" />
+    <meta name="geo.placename" content="Siracusa, Sicilia" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={pageType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&family=Zilla+Slab:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data – Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Fiori da Indossare",
+        "description": "Laboratorio artigianale di gioielli con fiori veri conservati. Collane, orecchini e bracciali con fiori secchi e resina UV, realizzati a Siracusa.",
+        "url": "https://www.fioridaindossare.it",
+        "logo": "https://www.fioridaindossare.it/images/logo.png",
+        "image": "https://www.fioridaindossare.it/images/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Siracusa",
+          "addressRegion": "SR",
+          "addressCountry": "IT"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 37.0755,
+          "longitude": 15.2866
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": "Siracusa, Sicilia"
+        },
+        "priceRange": "€€",
+        "sameAs": []
+      }
+    </script>
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>
