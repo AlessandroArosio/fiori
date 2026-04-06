@@ -1,8 +1,0 @@
-Logo placeholder – replace this file with logo.png (recommended size: 200x200px, PNG with transparent background).
-
-The logo will be displayed:
-- In the navbar (40x40px)
-- In the hero section (up to 300x300px)
-- As the Open Graph/Twitter Card image fallback
-
-File path: /public/images/logo.png
