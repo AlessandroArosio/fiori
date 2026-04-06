@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://www.fioridaindossare.it',
+  base: '/fiori',
   integrations: [
     sitemap({
       i18n: {
