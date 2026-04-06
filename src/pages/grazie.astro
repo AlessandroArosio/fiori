@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
@@ -17,7 +19,7 @@ import Footer from '../components/Footer.astro';
       Il tuo messaggio è stato ricevuto. Ti risponderò il prima possibile.
     </p>
     <a
-      href="/"
+      href={`${base}/`}
       class="inline-block bg-[#8B7355] hover:bg-[#6b5840] text-white font-bold py-3 px-8 rounded transition"
     >
       Torna alla Home
